@@ -3,10 +3,7 @@ import com.example.TasksApp.enums.Role;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,6 +14,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+
 public class User {
 
     @Id
@@ -24,7 +23,7 @@ public class User {
     private Long id;
 
     @Column(unique=true, nullable = false)
-    private String userName;
+    private String username;
 
     @Column(nullable = false)
     @NotBlank(message="Password is required")
